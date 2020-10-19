@@ -1,0 +1,395 @@
+Delivered-To: ethan.vanderheide@gmail.com
+Received: by 2002:a05:6a10:330a:0:0:0:0 with SMTP id t10csp4057873pxb;
+        Mon, 19 Oct 2020 14:45:43 -0700 (PDT)
+X-Received: by 2002:a17:90a:318d:: with SMTP id j13mr1449721pjb.209.1603143942925;
+        Mon, 19 Oct 2020 14:45:42 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1603143942; cv=none;
+        d=google.com; s=arc-20160816;
+        b=lkztfQgUaFtNHKWC/BRX/AzsMq2WTVExuvvYn9jm3eCq1zC3CEdLkeDyHQUAN9mOTq
+         P/AW9Rb6OmANzFXxikS3doJnUeJijFIgDXmAFT7mDd+K0bq5XDARChc5d50k2k6zjQVe
+         0WjUS7tctJc9gR29gGvhuSCk5lsRt1Wna78PGr+nKQPEXeVQdiTJ9xpREIXn+y8Q1BAe
+         1JcOK5571rS1EiQUCZysRbUh/axdQW7XdGJwaCLkacWFHepOMfrZSpJTruVM3GiBCC23
+         XxTlViWBhE1CqIqghDKVqMWyWGiQnoc2yIS+P1Wd0c3oBOtcHw8/efMdk8RXgzLCh+ms
+         rdsw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+         :dkim-signature;
+        bh=j6mrafy9JJT94BM6viH2LxQU2HE2gH5KO+K4dgpRZZk=;
+        b=xmF7dgZFrR+RIS9W6ZkBYGvZx4gZA1mR8B3NuiXZaVG/pBUf+B+Kpi1kGluk7Ztbwt
+         S5v0A5QnOu4j6qlfNUYdzMAaqk3bMQN7+up+HzptBkKzq0GcuAACipURl92oZ4OKy/7D
+         GJh47Gpul9WQNyJIe2d0a4R49kzApqDuQvv4l8bAqCaoYPO8m9CzoKGJTUjLuJpvWTYC
+         WvrRiSUd7baEAvJzu+mJ83Dnzb9SHwUnMnUtvK87ubO4XXr6UZrj8975pC0PrI59t+Qt
+         ECRgxTxBAEll1HNVQYxK8xOe0rbNfj42ij9BaWPHPuhrq/VQ842WfKjZuXhC21evQOib
+         /usw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AZM3iS43;
+       spf=pass (google.com: domain of spectre931@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=spectre931@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+Return-Path: <spectre931@gmail.com>
+Received: from mail-sor-f41.google.com (mail-sor-f41.google.com. [209.85.220.41])
+        by mx.google.com with SMTPS id cc24sor412261pjb.4.2020.10.19.14.45.42
+        for <ethan.vanderheide@gmail.com>
+        (Google Transport Security);
+        Mon, 19 Oct 2020 14:45:42 -0700 (PDT)
+Received-SPF: pass (google.com: domain of spectre931@gmail.com designates 209.85.220.41 as permitted sender) client-ip=209.85.220.41;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=AZM3iS43;
+       spf=pass (google.com: domain of spectre931@gmail.com designates 209.85.220.41 as permitted sender) smtp.mailfrom=spectre931@gmail.com;
+       dmarc=pass (p=NONE sp=QUARANTINE dis=NONE) header.from=gmail.com
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+        bh=j6mrafy9JJT94BM6viH2LxQU2HE2gH5KO+K4dgpRZZk=;
+        b=AZM3iS436z20H7bpEFXsPYXE4duiIbfkGg1BQonPlBoDsRcqjkP3QUrjB/Wjer75nR
+         oRN/iI5d9GuHF3EIEyVacvX90WDcYlCJIhjpCorn2BGf/1wwNCMt3j3XFe2wjm1IPSYR
+         UKhgSDR0otSPUPem8kDC3PoNyd+0+bBte7Fw0LuHdBRKv26NbWZ/KaJTWWhCm5kqupas
+         JgD1yyDnehpgvValtYmXUkN/C3VNgWfp0XV1POrlIA8HNTCsaR6SCAIBGCT7yB+PSR2b
+         9m24cmLesp/fecgGhp9WFjcxKgWn/57Wh3fZ1SNyB4kNFVsgxCp496tcW8uaeyDESA7S
+         LntA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+         :message-id:subject:to;
+        bh=j6mrafy9JJT94BM6viH2LxQU2HE2gH5KO+K4dgpRZZk=;
+        b=KuVPUUpMNxM0As470KEeNrigAjI4IWCsNajk+KKUhpLKdHzXXd0cWmQnJZXdYlJpJH
+         11KTXXHkZ9mgN8mgD2sQDU+j4CxszUmaqqEya3vUY92TgMPRaGz6gDbNTR/MKdUToy46
+         YcQRmjSL85l+vWp89UWzF84lik2aIIk/Oq53O9OY4zyZTldMzysjZY2DXIS1eshnbO7h
+         p6Bis9vc54Tnz4JzrNvL8A0vxpFPaxWWkX2Zu+i6uKaw/3Keh0a2VxWl+Hr51IImlRk5
+         CwgDYyqINKA8NtH6po0OLGf4bCdDfy/eH4as+Cu2j4YKGFCZVwyi5NpwS11qocqpYc0z
+         U0Og==
+X-Gm-Message-State: AOAM531rFPO42E2WDnWsoUHzFslYNx/faYyk1CuzBeiXQOURg6ON3LHS
+	gHZvf9d5NEWyeaNGxMUEO7F/f9nFE8JbaXMEbmAsUvtS
+X-Google-Smtp-Source: ABdhPJzpK8wnkEG3cn2BUAYGhsDv56rAP1zDd/405PhNzut1CSqN1Jd89XLAJtsEsHto11Pgr3wLAtj5gIb6U20tUBU=
+X-Received: by 2002:a17:90a:6444:: with SMTP id y4mr1346105pjm.203.1603143942258;
+ Mon, 19 Oct 2020 14:45:42 -0700 (PDT)
+MIME-Version: 1.0
+References: <CY4PR08MB26316BFCC5B4CAFC410A90F09B320@CY4PR08MB2631.namprd08.prod.outlook.com>
+In-Reply-To: <CY4PR08MB26316BFCC5B4CAFC410A90F09B320@CY4PR08MB2631.namprd08.prod.outlook.com>
+From: karl statz <spectre931@gmail.com>
+Date: Mon, 19 Oct 2020 16:45:30 -0500
+Message-ID: <CAGGnTx9U3HC3oATp2BYg-zw4oPXx8jAS1L2GE+yGf-1b__0+5g@mail.gmail.com>
+Subject: Fwd: RhinoDox - Move into an Architect Position? - .NET Core Deployed
+ in AWS
+To: ethan.vanderheide@gmail.com
+Content-Type: multipart/alternative; boundary="00000000000033c40105b20d09cb"
+
+--00000000000033c40105b20d09cb
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+---------- Forwarded message ---------
+From: Ethan Van der Heide <Ethan.VanderHeide@workbridgeassociates.com>
+Date: Tue, Mar 28, 2017, 10:10 AM
+Subject: RhinoDox - Move into an Architect Position? - .NET Core Deployed
+in AWS
+To: spectre931@gmail.com <spectre931@gmail.com>
+
+
+Hey Karl,
+
+
+
+Saw that you were just promoted from Sr. Engineer to Staff Engineer, but I
+wanted to see whether I could persuade you to take an additional jump by
+checking out an Architect role at a well-funded software product shop
+called RhinoDox. For personal background =E2=80=93 I placed Demetri Maltsin=
+iotis
+and Mike Davis. Guessing that you=E2=80=99ve gotten some cloud architecture
+exposure at Echo like the two guys I mentioned. If that=E2=80=99s the case,=
+ the
+opportunity at RhinoDox would give you a chance to really hone those skills
+and grow into their Chief Architect as the company develops.
+
+
+
+For background, RhinoDox is a NoSQL-driven document management software
+platform looking to add an Architect to help guide their engineering
+departments through upcoming architectural and technical challenges as the
+company scales from start-up. RhinoDox leverages a combination
+linguistics-informed NoSQL (MarkLogic) and .NET MVC to create a platform
+capable of drawing inferences from stored documents, allowing their product
+to continuously improve the quality of its own search and suggestion
+engine. One of the most appealing aspects about the company is that all of
+their engineers are allowed to work remotely while office space at
+TechNexus is provided when you want to work together in-person.
+
+
+
+Your specific role would be evaluating the possibility of a new API
+authentication system and architecting a new micro services architecture
+that leverages Lambda (and therefore migrating the platform to .NET  Core).
+Specially you=E2=80=99d be replacing a guy named Mike Knuth (
+https://www.linkedin.com/in/michaelknuth), taking his work and bringing
+that knowledge internal and refactoring code as needed so that the platform
+is able to scale with new client acquisition. The company emphasizes a
+culture of encouraging constant learning (their first company value
+references Yoda) and aims to hire engineers with the talent to grow into
+their role at the company. On the team you=E2=80=99d be working with Travis=
+ Whelan (
+https://www.linkedin.com/in/travis-whelan-8141792), Marty McKenna (
+https://www.linkedin.com/in/martinmckenna) and several other engineers who
+I=E2=80=99ve also placed.
+
+
+
+Culturally, the company offers a culture of constant learning and a genuine
+commitment to doing right by their clients. The company is founded and
+funded by Justin Ullman a serial entrepreneur, ex-software engineer/
+linguistics geek, and a founder of the Bucktown Beefsteak
+https://www.dnainfo.com/chicago/20150205/bucktown/annual-beefsteak-celebrat=
+es-manly-gluttony-buffoonery-for-good-cause,
+who heavily invested in creating a worthwhile ahead-of-the-curve software
+platform that he=E2=80=99s now looking to further develop on. He had the in=
+itial
+code base for RhinoDox built out by DragonSpears, one of the top software
+consultancies in Chicago, but brought on Travis (who moved over from a
+well-regarded competitor) to lead engineering efforts as they built out an
+internal team. In short, your role would be specifically to work as the
+Chief Architect, making core technology decisions, doing R&D, and helping
+to guide the future of the platform from a tech perspective as they grow
+the development team
+
+
+
+What=E2=80=99s your situation? I know you just got promoted, but I think th=
+is a
+pretty special opportunity that would give you the chance to really grow
+your career with a company that=E2=80=99s well-funded, working with excelle=
+nt
+engineers.
+
+
+
+Let me know,
+
+
+Ethan
+
+
+
+*ETHAN VAN DER HEIDE *| Lead Recruiter
+
+
+
+Voice: (312) 726-6700
+
+Email: ethan.vanderheide@workbridgeassociates.com
+
+LinkedIn: https://www.linkedin.com/pub/ethan-van-der-heide
+
+
+
+*WORK**BRIDGE* CHICAGO
+<http://www.workbridgeassociates.com/locations/chicago> | 10 South LaSalle
+St. | Suite 1310 | Chicago, IL 60603
+
+Boston <http://www.workbridgeassociates.com/locations/boston> | Chicago
+<http://www.workbridgeassociates.com/locations/chicago> | Los Angeles
+<http://www.workbridgeassociates.com/locations/los-angeles> | New York
+<http://www.workbridgeassociates.com/locations/new-york> | Orange County
+<http://www.workbridgeassociates.com/locations/orange-county> | Philadelphi=
+a
+<http://www.workbridgeassociates.com/locations/philadelphia> | San Francisc=
+o
+<http://www.workbridgeassociates.com/locations/san-francisco> | Silicon
+Valley <http://www.workbridgeassociates.com/locations/silicon-valley>
+| Washington
+DC <http://www.workbridgeassociates.com/locations/washington-dc>
+
+
+
+Workbridge is the proud creator of TechInMotionEvents.com
+<http://www.techinmotionevents.com/> =E2=80=93 the nation=E2=80=99s leading=
+ tech meet up
+community.
+
+--00000000000033c40105b20d09cb
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div dir=3D"auto"></div><br><div class=3D"gmail_quote"><d=
+iv dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded message ---------<=
+br>From: <strong class=3D"gmail_sendername" dir=3D"auto">Ethan Van der Heid=
+e</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:Ethan.VanderHeide@workb=
+ridgeassociates.com" target=3D"_blank" rel=3D"noreferrer">Ethan.VanderHeide=
+@workbridgeassociates.com</a>&gt;</span><br>Date: Tue, Mar 28, 2017, 10:10 =
+AM<br>Subject: RhinoDox - Move into an Architect Position? - .NET Core Depl=
+oyed in AWS<br>To: <a href=3D"mailto:spectre931@gmail.com" target=3D"_blank=
+" rel=3D"noreferrer">spectre931@gmail.com</a> &lt;<a href=3D"mailto:spectre=
+931@gmail.com" target=3D"_blank" rel=3D"noreferrer">spectre931@gmail.com</a=
+>&gt;<br></div><br><br>
+
+
+
+
+
+<div lang=3D"EN-US" link=3D"#0563C1" vlink=3D"#954F72">
+<div>
+<p class=3D"MsoNormal">Hey Karl,<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Saw that you were just promoted from Sr. Engineer to=
+ Staff Engineer, but I wanted to see whether I could persuade you to take a=
+n additional jump by checking out an Architect role at a well-funded softwa=
+re product shop called RhinoDox. For
+ personal background =E2=80=93 I placed Demetri Maltsiniotis and Mike Davis=
+. Guessing that you=E2=80=99ve gotten some cloud architecture exposure at E=
+cho like the two guys I mentioned. If that=E2=80=99s the case, the opportun=
+ity at RhinoDox would give you a chance to really hone those
+ skills and grow into their Chief Architect as the company develops. <u></u=
+><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">For background, RhinoDox is a NoSQL-driven document =
+management software platform looking to add an Architect to help guide thei=
+r engineering departments through upcoming architectural and technical chal=
+lenges as the company scales from
+ start-up. RhinoDox <span style=3D"background:white">leverages a combinatio=
+n linguistics-informed NoSQL (MarkLogic) and .NET MVC to create a platform =
+capable of drawing inferences from stored documents, allowing their product=
+ to continuously improve the quality
+ of its own search and suggestion engine. One of the most appealing aspects=
+ about the company is that all of their engineers are allowed to work remot=
+ely while office space at TechNexus is provided when you want to work toget=
+her in-person.
+<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"background:white"><u></u>=C2=A0<u></u=
+></span></p>
+<p class=3D"MsoNormal"><span style=3D"background:white">Your specific role =
+would be evaluating the possibility of a=C2=A0new API authentication system=
+ and architecting a new micro services architecture that leverages Lambda (=
+and therefore migrating the platform to .NET=C2=A0
+ Core). Specially you=E2=80=99d be replacing a guy named Mike Knuth (</span=
+><a href=3D"https://www.linkedin.com/in/michaelknuth" rel=3D"noreferrer nor=
+eferrer" target=3D"_blank"><span style=3D"font-size:8.5pt;font-family:&quot=
+;Arial&quot;,sans-serif;color:#0073b2;border:none windowtext 1.0pt;padding:=
+0in;background:#f6f6f6;text-decoration:none">https://www.linkedin.com/in/mi=
+chaelknuth</span></a>),
+ taking his work and bringing that knowledge internal and refactoring code =
+as needed so that the platform is able to scale with new client acquisition=
+. The company emphasizes a culture of encouraging constant learning (their =
+first company value references Yoda)
+ and aims to hire engineers with the talent to grow into their role at the =
+company. On the team you=E2=80=99d be working with Travis Whelan (<a href=
+=3D"https://www.linkedin.com/in/travis-whelan-8141792" rel=3D"noreferrer no=
+referrer" target=3D"_blank"><span style=3D"font-size:8.5pt;font-family:&quo=
+t;Arial&quot;,sans-serif;color:#0073b2;border:none windowtext 1.0pt;padding=
+:0in;background:#f6f6f6;text-decoration:none">https://www.linkedin.com/in/t=
+ravis-whelan-8141792</span></a>),
+ Marty McKenna (<a href=3D"https://www.linkedin.com/in/martinmckenna" rel=
+=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-size:8.5pt=
+;font-family:&quot;Arial&quot;,sans-serif;color:#0073b2;border:none windowt=
+ext 1.0pt;padding:0in;background:#f6f6f6;text-decoration:none">https://www.=
+linkedin.com/in/martinmckenna</span></a>)
+ and several other engineers who I=E2=80=99ve also placed.<u></u><u></u></p=
+>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Culturally, the company offers a culture of constant=
+ learning and a genuine commitment to doing right by their clients. The com=
+pany is founded and funded by Justin Ullman a serial entrepreneur, ex-softw=
+are engineer/ linguistics geek, and
+ a founder of the Bucktown Beefsteak <a href=3D"https://www.dnainfo.com/chi=
+cago/20150205/bucktown/annual-beefsteak-celebrates-manly-gluttony-buffooner=
+y-for-good-cause" rel=3D"noreferrer noreferrer" target=3D"_blank">
+https://www.dnainfo.com/chicago/20150205/bucktown/annual-beefsteak-celebrat=
+es-manly-gluttony-buffoonery-for-good-cause</a>, who heavily invested in cr=
+eating a worthwhile ahead-of-the-curve software platform that he=E2=80=99s =
+now looking to further develop on. He had
+ the initial code base for RhinoDox built out by DragonSpears, one of the t=
+op software consultancies in Chicago, but brought on Travis (who moved over=
+ from a well-regarded competitor) to lead engineering efforts as they built=
+ out an internal team. In short,
+ your role would be specifically to work as the Chief Architect, making cor=
+e technology decisions, doing R&amp;D, and helping to guide the future of t=
+he platform from a tech perspective as they grow the development team<u></u=
+><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">What=E2=80=99s your situation? I know you just got p=
+romoted, but I think this a pretty special opportunity that would give you =
+the chance to really grow your career with a company that=E2=80=99s well-fu=
+nded, working with excellent engineers.<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal">Let me know,<u></u><u></u></p>
+<p class=3D"MsoNormal"><br>
+Ethan<u></u><u></u></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><b><span style=3D"color:#005f7d">ETHAN VAN DER HEIDE=
+=C2=A0</span></b><span style=3D"color:black">|
+</span><span style=3D"color:#666666">Lead Recruiter</span><u></u><u></u></p=
+>
+<p class=3D"MsoNormal"><span style=3D"color:#001d5e"><u></u>=C2=A0<u></u></=
+span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#005f7d">Voice</span><span styl=
+e=3D"color:#666666">: (312) 726-6700<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#005f7d">Email</span><span styl=
+e=3D"color:#666666">:
+</span><a href=3D"mailto:ethan.vanderheide@workbridgeassociates.com" rel=3D=
+"noreferrer noreferrer" target=3D"_blank"><span style=3D"color:#0563c1">eth=
+an.vanderheide@workbridgeassociates.com</span></a><u></u><u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:#005f7d">LinkedIn</span><span s=
+tyle=3D"color:#666666">:
+<a href=3D"https://www.linkedin.com/pub/ethan-van-der-heide" rel=3D"norefer=
+rer noreferrer" target=3D"_blank"><span style=3D"color:#0563c1">https://www=
+.linkedin.com/pub/ethan-van-der-heide</span></a>
+<u></u><u></u></span></p>
+<p class=3D"MsoNormal"><span style=3D"color:#666666"><u></u>=C2=A0<u></u></=
+span></p>
+<p class=3D"MsoNormal"><a href=3D"http://www.workbridgeassociates.com/locat=
+ions/chicago" rel=3D"noreferrer noreferrer" target=3D"_blank"><b><span styl=
+e=3D"color:#005f7d">WORK</span></b><b><span style=3D"color:#7f7f7f">BRIDGE<=
+/span></b><span style=3D"color:blue">
+</span><span style=3D"color:#005f7d">CHICAGO</span></a><span style=3D"color=
+:#666666"> | 10 South LaSalle St. | Suite 1310 | Chicago, IL 60603</span><s=
+pan style=3D"font-size:10.0pt;color:#005f7d">
+</span><u></u><u></u></p>
+<p class=3D"MsoNormal"><a href=3D"http://www.workbridgeassociates.com/locat=
+ions/boston" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D=
+"font-size:10.0pt;color:#7f7f7f">Boston</span></a><span style=3D"font-size:=
+10.0pt;color:#7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/chicago" re=
+l=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-size:10.0=
+pt;color:#7f7f7f">Chicago</span></a><span style=3D"font-size:10.0pt;color:#=
+7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/los-angeles=
+" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-size:=
+10.0pt;color:#7f7f7f">Los Angeles</span></a><span style=3D"font-size:10.0pt=
+;color:#7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/new-york" r=
+el=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-size:10.=
+0pt;color:#7f7f7f">New York</span></a><span style=3D"font-size:10.0pt;color=
+:#7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/orange-coun=
+ty" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-siz=
+e:10.0pt;color:#7f7f7f">Orange County</span></a><span style=3D"font-size:10=
+.0pt;color:#7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/philadelphi=
+a" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-size=
+:10.0pt;color:#7f7f7f">Philadelphia</span></a><span style=3D"font-size:10.0=
+pt;color:#7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/san-francis=
+co" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-siz=
+e:10.0pt;color:#7f7f7f">San Francisco</span></a><span style=3D"font-size:10=
+.0pt;color:#7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/silicon-val=
+ley" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-si=
+ze:10.0pt;color:#7f7f7f">Silicon Valley</span></a><span style=3D"font-size:=
+10.0pt;color:#7f7f7f"> |
+</span><a href=3D"http://www.workbridgeassociates.com/locations/washington-=
+dc" rel=3D"noreferrer noreferrer" target=3D"_blank"><span style=3D"font-siz=
+e:10.0pt;color:#7f7f7f">Washington DC</span></a><span style=3D"font-size:10=
+.0pt;color:#7f7f7f"><u></u><u></u></span></p>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+<p class=3D"MsoNormal"><span style=3D"color:#666666">Workbridge is the prou=
+d creator of</span><span style=3D"color:#7f7f7f">=C2=A0</span><span style=
+=3D"color:#005f7d"><a href=3D"http://www.techinmotionevents.com/" rel=3D"no=
+referrer noreferrer" target=3D"_blank"><span style=3D"color:#005f7d">TechIn=
+MotionEvents.com</span></a></span><span style=3D"color:#7f7f7f">=C2=A0=E2=
+=80=93
+</span><span style=3D"color:#666666">the nation=E2=80=99s leading tech meet=
+ up community.</span><span style=3D"color:#7f7f7f"><u></u><u></u></span></p=
+>
+<p class=3D"MsoNormal"><u></u>=C2=A0<u></u></p>
+</div>
+</div>
+
+</div></div>
+
+--00000000000033c40105b20d09cb--
