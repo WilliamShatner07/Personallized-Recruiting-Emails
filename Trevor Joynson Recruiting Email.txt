@@ -1,0 +1,42 @@
+Ethan, you do your research well.
+ 
+If it was automated I take that back though ;)
+ 
+Thanks for reaching out. 
+ 
+Tigera certainly sounds interesting.
+ 
+What stage is it?
+ 
+Thanks!
+Trevor
+ 
+On Mon, Feb 4, 2019, 5:26 PM Ethan Van der Heide <ethan.vanderheide@workbridgeassociates.com wrote:
+Hey Trevor,
+
+a. Realized I didn't carry my scientific method structure to fruition - shame on me!
+b. Did Cerego or Tigera sound interesting?
+c. What would you say you're looking for in your next infra / DevOps role? 
+
+Ethan - happy to chat outside of normal business hours / text me at (415) 653-0103.  
+ 
+-----Original Message----- 
+Trevor,
+
+1. Saw you were connected with Max Bigras (someone I more or less consider a friend at this point) + how you described yourself as not a "quiet engineer without opinions on best practices" = Man I bet this guy's a fun chat (job search or no).  
+
+How do you know Max?
+
+2. Genuinely curious to learn what you're looking to get out of a role post Osaro? 
+
+I remember seeing you list yourself as open to new roles last year at Disqus and being intrigued by Osaro's business model and a presumed inherent mix of cloud and bare metal infrastructure. 
+HYPOTHESIS: The roles I wanted to chat with you about (a senior role at Cerego and principal level engineer at Tigera) would give you the greatest possible opportunity to exercise your technology views, in the form of tooling and architecture at Cerego and application layer / software networking code at Tigera.
+
+In the case of Cerego, you'd be taking over a mature, IaC-committed AWS environment originally built by Darwin Wu https://www.linkedin.com/in/darwin67/ (who we also placed), with near full reign to refactor and migrate their platform to a form of container orchestration as you see fit. The current stack consists of AWS, Chef wrapped in Terraform, and a variety of interconnected Python scripts.
+
+By contrast, Tigera would give you a chance to exercise your Go skills (a la your serial vault tool :)) AND your infrastructure know-how as contributions to Tigera's core platform. For the sake of brevity, Tigera is a Series B (recently funded) SaaS platform spun out of Project Calico, the default open source Kubernetes network protocol. In the case of Tigera, Doug Collier https://www.linkedin.com/in/dougcollier/ is looking to add several principal level engineers to write low level Go code that simulates networking functionality in the most efficient ways possible - problems I suspect you've encountered indirectly in your time at Tigera.
+
+What would you say your goal in finding a new role this time? My team and I only place infrastructure engineers in SF, so while Tigera and Cerego stood out for somewhat similar reasons, I'd rather jump on a call outside of works hours and hear what you're looking for from the source :).
+
+Let me know,
+Ethan 
